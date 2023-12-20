@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script';
 
 // TailwindCSS
 import './css/globals.css'
@@ -15,11 +16,14 @@ import "./css/nucleo-svg.css"
 
 // Main Styling 
 import "./css/soft-ui-dashboard-tailwind.css?v=1.0.5"
-import { SideNav } from '@/components';
 
+// Script
 
+//  plugin for scrollbar
+import "./js/plugins/perfect-scrollbar.min.js"
+// main script file
 
-
+import { MenuSettings, NavBar, SideNav } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -44,7 +48,14 @@ export default function RootLayout({
       <body className='container-body'>
         {/* SideNav */}
         <SideNav />
-        {children}
+        <main className="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+          <NavBar />
+          {children}
+        </main>
+        <MenuSettings />
+        <Script src="https://kit.fontawesome.com/42d5adcbca.js" crossOrigin="anonymous" async />
+        <Script src="https://unpkg.com/@popperjs/core@2" crossOrigin="anonymous" />
+        <Script async defer src="https://buttons.github.io/buttons.js" />
       </body>
     </html>
   )
