@@ -53,9 +53,8 @@ export default function RootLayout({
           {children}
         </main>
         <MenuSettings />
-        <Script src="https://kit.fontawesome.com/42d5adcbca.js" crossOrigin="anonymous" async />
-        <Script src="https://unpkg.com/@popperjs/core@2" crossOrigin="anonymous" />
-        <Script async defer src="https://buttons.github.io/buttons.js" />
+        <Script src="https://kit.fontawesome.com/42d5adcbca.js" strategy='lazyOnload' />
+        <Script src="https://unpkg.com/@popperjs/core@2" />
       </body>
     </html>
   )
