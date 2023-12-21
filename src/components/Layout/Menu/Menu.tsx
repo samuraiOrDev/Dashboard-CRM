@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { IoApps, IoLogInOutline } from "react-icons/io5"
 import { MdOutlineTask } from "react-icons/md"
@@ -7,6 +7,7 @@ import { TbEdit } from "react-icons/tb";
 
 import { LinkMenu } from './LinkMenu'
 import { BarMenu } from './BarMenu'
+
 
 export const Menu = () => {
 

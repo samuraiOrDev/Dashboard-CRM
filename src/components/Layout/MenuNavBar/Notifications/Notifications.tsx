@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react'
+import { IoNotifications } from "react-icons/io5";
+import { motion, AnimatePresence } from 'framer-motion'
 import { Card } from './Card'
 
 export const Notifications = () => {
@@ -35,23 +37,32 @@ export const Notifications = () => {
   return (
     <li className="relative flex items-center pr-2">
       <button className="block p-0 transition-all text-sm ease-nav-brand text-slate-500" aria-expanded="false">
-        <i className="cursor-pointer fa fa-bell" onClick={handleNotifications}></i>
+        <IoNotifications onClick={handleNotifications} className="h-4 w-4" />
       </button>
-      {
-        showNotifications && (
-          <ul className="text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-2 before:left-auto before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer before:-top-5 transform-dropdown-show">
-            {
-              arraysNotifications.map(({ time, messageSubject, message, image }, index) => (
-                <Card
-                  key={index}
-                  time={time}
-                  messageSubject={messageSubject}
-                  message={message}
-                  image={image} />
-              ))
-            }
-          </ul>)
-      }
+
+      <AnimatePresence>
+        {
+          showNotifications && (
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              key="transition-component"
+              transition={{ ease: 'easeInOut', duration: 0.5 }}
+              className="transition-component text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl  min-w-44 before:sm:right-7.5 before:text-5.5 absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 before:absolute before:right-2 before:left-auto before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer before:-top-5 transform-dropdown-show">
+              {
+                arraysNotifications.map(({ time, messageSubject, message, image }, index) => (
+                  <Card
+                    key={index}
+                    time={time}
+                    messageSubject={messageSubject}
+                    message={message}
+                    image={image} />
+                ))
+              }
+            </motion.ul>)
+        }
+      </AnimatePresence>
     </li>
   )
 }

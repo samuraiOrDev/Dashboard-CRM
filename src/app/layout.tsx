@@ -10,20 +10,11 @@ import '@fontsource-variable/open-sans';
 
 // Font Awesome Icons 
 
-// Nucleo Icons 
-import "./css/nucleo-icons.css"
-import "./css/nucleo-svg.css"
-
 // Main Styling 
 import "./css/soft-ui-dashboard-tailwind.css?v=1.0.5"
 
-// Script
 
-//  plugin for scrollbar
-import "./js/plugins/perfect-scrollbar.min.js"
-// main script file
-
-import { MenuSettings, NavBar, SideNav } from '@/components';
+import { Content, MenuSettings, NavBar, SideNav } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -46,15 +37,12 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className='container-body'>
-        {/* SideNav */}
-        <SideNav />
-        <main className="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
-          <NavBar />
+        {/* Content */}
+        <Content>
           {children}
-        </main>
-        <MenuSettings />
+        </Content>
         <Script src="https://kit.fontawesome.com/42d5adcbca.js" strategy='lazyOnload' />
-        <Script src="https://unpkg.com/@popperjs/core@2" />
+        {/* <Script src="https://unpkg.com/@popperjs/core@2" /> */}
       </body>
     </html>
   )

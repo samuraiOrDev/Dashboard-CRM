@@ -2,13 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer components {
   .container-body {
     @apply m-0 font-sans text-base antialiased font-normal bg-gray-50 text-slate-500;
   }
   .container-aside-nav {
     @apply relative h-full max-h-screen rounded-xl transition-all duration-200;
+  }
+  .theme-purple {
+    @apply bg-gradient-to-tl from-purple-700 to-pink-500;
+  }
+  .theme-black {
+    @apply bg-gradient-to-tl from-gray-800 to-gray-900;
+  }
+  .theme-blue {
+    @apply bg-gradient-to-tl from-blue-700 to-blue-500;
+  }
+  .theme-green {
+    @apply bg-gradient-to-tl from-green-700 to-green-500;
+  }
+  .theme-red {
+    @apply bg-gradient-to-tl from-red-700 to-red-500;
+  }
+  .theme-yellow {
+    @apply bg-gradient-to-tl from-yellow-700 to-yellow-500;
+  }
+  .bg-sidebar-transparent {
+    @apply xl:bg-transparent shadow-none;
+  }
+  .bg-sidebar-white {
+    @apply bg-white xl:bg-white;
   }
 }
